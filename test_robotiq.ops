@@ -1,9 +1,11 @@
 import("soem_beckhoff_drivers")
 import("soem_robotiq_drivers")
-import("rtt_rosnode") // makes this process a ROS node
+import("soem_master")
+import("rtt_rosnode")
+import("rtt_roscomm")
 
 loadComponent("Master","soem_master::SoemMasterComponent")
-Master.ifname = "eth1" 
+Master.ifname = "enp9s0"
 
 Master.setPeriod(0.001)
 Master.configure()
@@ -12,7 +14,4 @@ Master.displayAvailableDrivers()
 stream("Master.Slave_1001.Status",ros.topic("/status"))
 
 Master.Slave_1001.SetFingerVel (0.5)
-
 Master.Slave_1001.SetSinus(0.3,0.2)
-
-
