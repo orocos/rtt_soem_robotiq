@@ -9,7 +9,13 @@ project(soem_robotiq_drivers)
 #  MinSizeRel     : w/o debug symbols, w/ optimization, stripped binaries
 #set(ROS_BUILD_TYPE RelWithDebInfo)
 
- 
+# Set the CMAKE_PREFIX_PATH in case you're not using Orocos through
+# ROS for helping these find commands find RTT.
+find_package(OROCOS-RTT REQUIRED ${RTT_HINTS} )
+# Defines the orocos_* cmake macros. See that file for additional
+# documentation.
+include(${OROCOS-RTT_USE_FILE_PATH}/UseOROCOS-RTT.cmake)
+
 # Do setup in case of ros package, If ROS_ROOT is set, it is                                                                                                 # recommended to use RTT/OCL through the ros packages.                                                                                                       
 #uncomment if you have defined messages
 if(NOT ORO_USE_ROSBUILD)
@@ -21,12 +27,6 @@ if(NOT ORO_USE_ROSBUILD)
 
   generate_messages()
 endif()
-# Set the CMAKE_PREFIX_PATH in case you're not using Orocos through
-# ROS for helping these find commands find RTT.
-find_package(OROCOS-RTT REQUIRED ${RTT_HINTS} )
-# Defines the orocos_* cmake macros. See that file for additional
-# documentation.
-include(${OROCOS-RTT_USE_FILE_PATH}/UseOROCOS-RTT.cmake)
 
 if(ORO_USE_ROSBUILD)
   rosbuild_genmsg()
