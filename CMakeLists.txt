@@ -40,11 +40,11 @@ include_directories(${soem_INCLUDE_DIRS})
 
 orocos_use_package(soem_master)
 
-orocos_plugin(soem_Robotiq src/soem_robotiq_drivers.cpp src/soem_robotiq_3Finger.cpp)
+orocos_plugin(soem_robotiq src/soem_robotiq_drivers.cpp src/soem_robotiq_3Finger.cpp)
 
-target_link_libraries(soem_Robotiq ${soem_LIBRARIES})
+target_link_libraries(soem_robotiq ${soem_LIBRARIES})
 
 if(NOT ORO_USE_ROSBUILD)
-  add_dependencies(soem_Robotiq ${PROJECT_NAME}_generate_messages_cpp)
+  add_dependencies(soem_robotiq ${PROJECT_NAME}_generate_messages_cpp)
 endif()
 orocos_generate_package()
