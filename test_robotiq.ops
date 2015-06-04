@@ -5,7 +5,7 @@ import("rtt_rosnode")
 import("rtt_roscomm")
 
 loadComponent("Master","soem_master::SoemMasterComponent")
-Master.ifname = "enp9s0"
+Master.ifname = "eth0"
 
 Master.setPeriod(0.001)
 Master.configure()
