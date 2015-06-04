@@ -4,7 +4,8 @@
     </description>
     <!--NOTE: set the license and author before you publish this code-->
     <license>LGPL</license>
-    <author>Wilson Ko</author>
+    <author></author>
+    <maintainer email="ruben@intermodalics.eu">Ruben Smits</maintainer>
     <depend package="soem_core"/>
     <depend package="soem_master"/>
     <depend package="rtt"/>
